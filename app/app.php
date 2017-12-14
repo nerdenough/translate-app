@@ -14,10 +14,9 @@ function connect() {
 }
 
 /**
- * Attempt to translate a given phrase by checking for similar entries in
- * the database.
+ * Find suggested translations similar to the specified phrase.
  */
-function translate($phrase) {
+function findSuggestions($phrase) {
   try {
     $db = connect();
     $query = $db->prepare("SELECT phrase, translation FROM phrases WHERE LOWER(phrase) LIKE ?");
@@ -31,7 +30,24 @@ function translate($phrase) {
 
     return json_encode($results);
   } catch (PDOException $err) {
-    echo "PDO Error: " . $err->getMessage();
+    return "PDO Error: " . $err->getMessage();
+  }
+}
+
+/**
+ * Adds a translation for the given phrase.
+ */
+function addTranslation($phrase, $translation) {
+  try {
+    $db = connect();
+    $query = $db->prepare("INSERT INTO phrases (phrase, translation) VALUES (?, ?)");
+    $query->bindParam(1, $phrase);
+    $query->bindParam(2, $translation);
+    $query->execute();
+
+    return 'success';
+  } catch (PDOException $err) {
+    return "PDO Error: " . $err->getMessage();
   }
 }
 
@@ -39,8 +55,12 @@ function translate($phrase) {
 if ($_GET['phrase']) {
   $phrase = $_GET['phrase'];
   $str = preg_replace('/[^A-Za-z0-9 ]/', '', $phrase);
-  $res = translate($str);
+  echo findSuggestions($str);
+}
 
-  // Echo needed to send a 200 with a body
-  echo $res;
+// Our POST endpoint where we add a translation
+if ($_POST['phrase'] && $_POST['translation']) {
+  $phrase = $_POST['phrase'];
+  $translation = $_POST['translation'];
+  echo addTranslation($phrase, $translation);
 }

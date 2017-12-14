@@ -3,9 +3,10 @@ html, body {
   --text: #808080;
   --background: #efefef;
   --border: #cecece;
+  --green: #6fbe4a;
   --red: #e05757;
-  --blue: #17abe6;
-  --button: #efefef;
+  --button: #17abe6;
+  --button-hover: #157aa1;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,11 +19,16 @@ html, body {
 }
 
 button {
-  width: 5rem;
-  height: 5rem;
-  font-size: 2rem;
+  grid-column: 1 / span 2;
+  background: var(--button);
+  font-size: 1.8rem;
+  padding: 2rem;
   border: none;
   cursor: pointer;
+}
+
+button:hover {
+  background: var(--button-hover);
 }
 
 /* Typography */
@@ -34,7 +40,6 @@ h1, h2, h3, h4, h5, h6, p {
 
 h1 {
   font-size: 2.4rem;
-  text-transform: uppercase;
 }
 
 h2 {
@@ -50,20 +55,12 @@ p {
   color: var(--red);
 }
 
-.blue {
-  color: var(--blue);
+.green {
+  color: var(--green);
 }
 
 .white {
   color: white;
-}
-
-.bg-red {
-  background: var(--red);
-}
-
-.bg-blue {
-  background: var(--blue);
 }
 
 /* Layout */
@@ -94,6 +91,10 @@ p {
 
 /* Custom */
 
+.title {
+  text-transform: uppercase;
+}
+
 .wrapper {
   grid-template-rows: auto 1fr 5rem;
   grid-template-columns: auto minmax(auto, 1280px) auto;
@@ -119,6 +120,7 @@ p {
 }
 
 .entry {
+  grid-gap: 2rem;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -138,11 +140,15 @@ textarea {
   padding: 2rem;
   border: none;
   resize: none;
-  margin: 2rem 0;
+  margin-top: 2rem;
 }
 
 .list {
   font-size: 1.6rem;
   list-style-position: inside;
   padding: 0;
+}
+
+#error, #success {
+  display: none;
 }

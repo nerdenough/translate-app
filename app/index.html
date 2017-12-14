@@ -12,26 +12,29 @@
   </head>
 
   <body class="grid wrapper">
-    <header class="flex ai-center jc-center header">
-      <div class="flex flex-col">
-        <h1>Translate</h1>
-        <h2>Find and create translations</h2>
-      </div>
-      <div class="flex-grow"></div>
-      <button class="bg-blue white"><i class="fa fa-plus"></i></button>
+    <header class="flex flex-col jc-center header">
+      <h1 class="title">Translate</h1>
+      <h2>Find and create translations</h2>
     </header>
 
     <main class="main">
-      <section class="grid entry">
-        <div class="flex flex-col container">
+      <section class="grid entry container">
+        <div class="flex flex-col">
           <h1>English</h1>
-          <textarea id= "phrase" placeholder="Enter a phrase to find a translation"></textarea>
+          <textarea id= "phrase" placeholder="Your phrase"></textarea>
         </div>
 
-        <div class="flex flex-col container">
+        <div class="flex flex-col">
           <h1>Japanese</h1>
-          <textarea id="translation" placeholder="Suggestions will appear here" readonly></textarea>
+          <textarea id="translation" placeholder="Your translation"></textarea>
         </div>
+
+        <p id="success" class="green">Successfully added your phrase!</p>
+        <p id="error" class="red"></p>
+
+        <button id="add" class="white">
+          Add Phrase
+        </button>
       </section>
 
       <section class="container">
