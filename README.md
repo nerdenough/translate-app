@@ -2,6 +2,12 @@
 
 > Simple app to suggest similar phrases based on user input
 
+The goal of this app was to try and make a phrase lookup system using jQuery
+as the only framework. At the same time, I also wanted to have a realtime
+lookup for the database, hence the hacky GET/POST "endpoints" in the vanilla
+PHP. It would have been a lot tidier to use Laravel or another nice PHP
+framework.
+
 ## Usage
 
 ### Create Containers
