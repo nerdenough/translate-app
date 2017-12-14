@@ -24,17 +24,21 @@
     <main class="grid main">
       <div class="flex flex-col container">
         <h1>English</h1>
-        <textarea placeholder="Enter a phrase to find a translation"></textarea>
+        <textarea id="phrase" placeholder="Enter a phrase to find a translation"></textarea>
       </div>
 
       <div class="flex flex-col container">
         <h1>Japanese</h1>
-        <textarea placeholder="Suggestions will appear here" readonly></textarea>
+        <textarea id="translation" placeholder="Suggestions will appear here" readonly></textarea>
       </div>
     </main>
 
     <footer class="flex ai-center jc-center footer">
       Made with&nbsp;<i class="fa fa-heart red"></i>&nbsp;by Brendan Goodenough
     </footer>
+
+    <!-- Load scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>
