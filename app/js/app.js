@@ -1,12 +1,12 @@
-const translate = async text => {
-  // TODO: Call api
-  return text
+const translate = async phrase => {
+  const res = await $.get(`app.php?phrase=${phrase}`)
+  return res || phrase
 }
 
 const onTextChange = async () => {
-  const text = $('#phrase').val();
-  const translated = await translate(text);
-  $('#translation').text(translated);
+  const phrase = $('#phrase').val()
+  const translated = await translate(phrase)
+  $('#translation').text(translated)
 }
 
 $('#phrase').keyup(onTextChange)
