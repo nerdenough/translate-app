@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>Translate App</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400">
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+
+  <body class="grid wrapper">
+    <header class="flex ai-center jc-center header">
+      <div class="flex flex-col">
+        <h1>Translate</h1>
+        <h2>Find and create translations</h2>
+      </div>
+      <div class="flex-grow"></div>
+      <button class="bg-blue white"><i class="fa fa-plus"></i></button>
+    </header>
+
+    <main class="grid main">
+      <div class="flex flex-col container">
+        <h1>English</h1>
+        <textarea placeholder="Enter a phrase to find a translation"></textarea>
+      </div>
+
+      <div class="flex flex-col container">
+        <h1>Japanese</h1>
+        <textarea placeholder="Suggestions will appear here" readonly></textarea>
+      </div>
+    </main>
+
+    <footer class="flex ai-center jc-center footer">
+      Made with&nbsp;<i class="fa fa-heart red"></i>&nbsp;by Brendan Goodenough
+    </footer>
+  </body>
+</html>

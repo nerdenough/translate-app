@@ -1,0 +1,134 @@
+html, body {
+  --base-font: Roboto, Arial, Helvetica, sans-serif;
+  --text: #808080;
+  --background: #efefef;
+  --border: #cecece;
+  --red: #e05757;
+  --blue: #17abe6;
+  --button: #efefef;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
+  font-family: var(--base-font);
+  font-size: 10px;
+  font-weight: 300;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  width: 5rem;
+  height: 5rem;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: 300;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.red {
+  color: var(--red);
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.white {
+  color: white;
+}
+
+.bg-red {
+  background: var(--red);
+}
+
+.bg-blue {
+  background: var(--blue);
+}
+
+/* Layout */
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+/* Custom */
+
+.wrapper {
+  grid-template-rows: auto 1fr 5rem;
+  grid-template-columns: auto minmax(auto, 1280px) auto;
+  grid-template-areas:
+    ". header ."
+    ". main ."
+    "footer footer footer";
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 2rem;
+}
+
+.header {
+  grid-area: header;
+  padding: 2rem;
+}
+
+.main {
+  grid-area: main;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.footer {
+  grid-area: footer;
+  background: var(--background);
+  font-size: 1.4rem;
+}
+
+textarea {
+  background: var(--background);
+  height: 10rem;
+  font-family: var(--base-font);
+  font-size: 1.8rem;
+  font-weight: 300;
+  padding: 2rem;
+  border: none;
+  resize: none;
+  margin: 2rem 0;
+}
