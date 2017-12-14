@@ -8,8 +8,9 @@ const onTextChange = async () => {
     return $('#translation').text('')
   }
 
-  const data = JSON.parse(res);
-  return $('#translation').text(data.join('\n'))
+  const data = JSON.parse(res)
+  const suggestions = data.map(d => `${d.phrase}: ${d.translation}`).join('\n');
+  return $('#translation').text(suggestions)
 }
 
 $('#phrase').keyup(onTextChange)

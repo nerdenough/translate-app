@@ -20,13 +20,13 @@ function connect() {
 function translate($phrase) {
   try {
     $db = connect();
-    $query = $db->prepare("SELECT translation FROM translations WHERE LOWER(phrase) LIKE ?");
+    $query = $db->prepare("SELECT phrase, translation FROM phrases WHERE LOWER(phrase) LIKE ?");
     $query->execute(array("%$phrase%"));
 
     // Add all suggestions to an array
     $results = [];
-    while ($result = $query->fetch()) {
-      array_push($results, $result['translation']);
+    while ($result = $query->fetch(PDO::FETCH_OBJ)) {
+      array_push($results, $result);
     }
 
     return json_encode($results);

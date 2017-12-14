@@ -1,31 +1,19 @@
 -- Get rid of everything.
-DROP TABLE IF EXISTS translations;
-DROP TABLE IF EXISTS languages;
-
--- Having a languages table makes it easier to expand to more languages later on.
-CREATE TABLE languages (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(20) NOT NULL
-);
+DROP TABLE IF EXISTS phrases;
 
 -- Translations table to record the source and translation language and word.
-CREATE TABLE translations (
+CREATE TABLE phrases (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  lang_from INT NOT NULL,
-  lang_to INT NOT NULL,
   phrase TEXT NOT NULL,
-  translation TEXT NOT NULL,
-  FOREIGN KEY (lang_from) REFERENCES languages(id),
-  FOREIGN KEY (lang_to) REFERENCES languages(id)
+  translation TEXT NOT NULL
 );
 
 -- Some initial data to get the ball rolling.
-INSERT INTO languages (id, name)
+INSERT INTO phrases (phrase, translation)
   VALUES
-    (1, 'English'),
-    (2, 'Japanese');
-
-INSERT INTO translations (lang_from, lang_to, phrase, translation)
-  VALUES
-    (1, 2, 'hello', 'こんにちわ'),
-    (1, 2, 'goodbye', 'さようなら');
+    ('i am home', 'ただいま'),
+    ('let us eat', 'いただきます'),
+    ('how are you', 'お元気ですか'),
+    ('what is the time now', '今何時ですか'),
+    ('hello', 'こんにちわ'),
+    ('goodbye', 'さようなら');
