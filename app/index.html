@@ -21,16 +21,25 @@
       <button class="bg-blue white"><i class="fa fa-plus"></i></button>
     </header>
 
-    <main class="grid main">
-      <div class="flex flex-col container">
-        <h1>English</h1>
-        <textarea id="phrase" placeholder="Enter a phrase to find a translation"></textarea>
-      </div>
+    <main class="main">
+      <section class="grid entry">
+        <div class="flex flex-col container">
+          <h1>English</h1>
+          <textarea id= "phrase" placeholder="Enter a phrase to find a translation"></textarea>
+        </div>
 
-      <div class="flex flex-col container">
-        <h1>Japanese</h1>
-        <textarea id="translation" placeholder="Suggestions will appear here" readonly></textarea>
-      </div>
+        <div class="flex flex-col container">
+          <h1>Japanese</h1>
+          <textarea id="translation" placeholder="Suggestions will appear here" readonly></textarea>
+        </div>
+      </section>
+
+      <section class="container">
+        <h1>Suggestions</h1>
+        <ol id="suggestions" class="list">
+           Suggestions will be filtered as you type into the English phrase box above.
+        </ol>
+      </section>
     </main>
 
     <footer class="flex ai-center jc-center footer">

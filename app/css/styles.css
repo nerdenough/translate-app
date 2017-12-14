@@ -42,6 +42,10 @@ h2 {
   text-transform: uppercase;
 }
 
+p {
+  font-size: 1.6rem;
+}
+
 .red {
   color: var(--red);
 }
@@ -112,6 +116,9 @@ h2 {
 
 .main {
   grid-area: main;
+}
+
+.entry {
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -132,4 +139,10 @@ textarea {
   border: none;
   resize: none;
   margin: 2rem 0;
+}
+
+.list {
+  font-size: 1.6rem;
+  list-style-position: inside;
+  padding: 0;
 }
