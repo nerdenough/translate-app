@@ -1,12 +1,15 @@
-const translate = async phrase => {
-  const res = await $.get(`app.php?phrase=${phrase}`)
-  return res || phrase
-}
+const translate = phrase => $.get(`app.php?phrase=${phrase}`)
 
 const onTextChange = async () => {
   const phrase = $('#phrase').val()
-  const translated = await translate(phrase)
-  $('#translation').text(translated)
+  const res = await translate(phrase)
+
+  if (!res.length) {
+    return $('#translation').text('')
+  }
+
+  const data = JSON.parse(res);
+  return $('#translation').text(data.join('\n'))
 }
 
 $('#phrase').keyup(onTextChange)
